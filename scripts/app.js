@@ -9,14 +9,9 @@ export default class App extends React.Component {
       todos: List(),
       todo: ''
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCheck = this.handleCheck.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     this.setState(({todos, todo}) => {
@@ -29,11 +24,11 @@ export default class App extends React.Component {
     });
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({todo: e.target.value});
   }
 
-  handleDelete(i) {
+  handleDelete = (i) => {
     this.setState(({todos}) => {
       return {
         todos: todos.remove(i)
@@ -41,7 +36,7 @@ export default class App extends React.Component {
     });
   }
 
-  handleCheck(i) {
+  handleCheck = (i) => {
     this.setState(({todos}) => {
       return {
         todos: todos.update(i, (todo) => {
